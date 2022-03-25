@@ -11,7 +11,8 @@ module.exports = {
         'mobile': "url('./src/assets/home/background-home-mobile.jpg')"
       },
       boxShadow: {
-        'explore': '0 0 0 88px rgba(0, 0, 0, .5)'
+        'explore': '0 0 0 44px rgba(255, 255, 255, .1)',
+        'explore-md': '0 0 0 88px rgba(255, 255, 255, .1)'
       }
     },
   },

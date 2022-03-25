@@ -1,26 +1,22 @@
 <template>
-  <div class="h-screen w-auto bg-mobile md:bg-tablet xl:bg-desktop bg-cover bg-no-repeat p-12">
-    <Header />
-  </div>
-  <main class="w-full h-full relative">
-    <div class="w-[450px] h-auto text-[#D0D6F9] font-normal absolute left-[165px] bottom-[131px]">
-      <h2 class="text-lg leading-[34px]">SO, YOU WANT TO TRAVEL TO
-        <span class="block text-[150px] leading-[172px] text-white">SPACE</span>
+  <section class="flex-1 relative flex flex-col justify-between items-center xl:items-end xl:flex-row
+    pt-4 pb-1 md:pt-[106px] md:pb-[2px] xl:pb-[131px] xl:px-[165px]">
+    <div class="w-[327px] md:w-[450px] h-auto text-[#D0D6F9] text-center xl:text-left font-normal">
+      <h2 class="md:text-xl xl:text-lg leading-[1.2]">SO, YOU WANT TO TRAVEL TO
+        <span class="block text-[80px] md:text-[150px] leading-[100px] md:leading-none xl:leading-[172px] text-white my-4 md:my-6">SPACE</span>
       </h2>
-      <p class="text-lg leading-8">Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
+      <p class="text-[15px] md:text-base xl:text-lg leading-[25px] xl:leading-8">Let’s face it; if you want to go to space, you might as well 
+        genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
     </div>
-    <div class="w-[450px] h-[450px] flex justify-center items-center absolute right-[77px] bottom-[43px]">
-      <div class="w-[274px] h-[274px] bg-white rounded-full text-center hover:shadow-explore duration-100">
-        <span class="text-[#0B0D17] text-2xl leading-[274px]">EXPLORE</span>
-      </div>
+    <div class="w-[238px] md:w-[418px] xl:w-[450px] aspect-square flex justify-center items-center">
+      <router-link :to="{ name: 'Destination' }" class="w-[150px] md:w-[242px] xl:w-[274px] aspect-square bg-white rounded-full
+      text-center duration-100 cursor-pointer text-[#0B0D17] text-xl md:text-2xl leading-[150px] md:leading-[242px] xl:leading-[274px]
+      hover:shadow-explore hover:md:shadow-explore-md xl:translate-y-[88px]">
+        EXPLORE
+      </router-link>
     </div>
-  </main>
+  </section>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-
-export default {
-  components: { Header }
-}
 </script>
