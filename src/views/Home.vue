@@ -1,6 +1,7 @@
 <template>
-  <section class="flex-1 relative flex flex-col justify-between items-center xl:items-end xl:flex-row
-    pt-4 pb-1 md:pt-[106px] md:pb-[2px] xl:pb-[131px] xl:px-[165px]">
+  <section class="h-full w-full relative flex flex-col justify-between items-center xl:items-end xl:flex-row
+    bg-mobile md:bg-tablet xl:bg-desktop bg-cover bg-no-repeat -z-10
+    pt-28 pb-1 md:pt-[202px] md:pb-[2px] xl:pb-[131px] xl:px-[165px]">
     <div class="w-[327px] md:w-[450px] h-auto text-[#D0D6F9] text-center xl:text-left font-normal">
       <h2 class="md:text-xl xl:text-lg leading-[1.2]">SO, YOU WANT TO TRAVEL TO
         <span class="block text-[80px] md:text-[150px] leading-[100px] md:leading-none xl:leading-[172px] text-white my-4 md:my-6">SPACE</span>

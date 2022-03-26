@@ -1,5 +1,6 @@
 <template>
-  <main class="h-screen w-auto bg-mobile md:bg-tablet xl:bg-desktop bg-cover bg-no-repeat flex flex-col">
+  <main class="h-screen w-auto overflow-hidden relative">
+    <Menu />
     <Header />
     <router-view />
   </main>
@@ -7,8 +8,9 @@
 
 <script>
 import Header from '@/components/Header.vue'
+import Menu from '@/components/Menu.vue'
 
 export default {
-  components: { Header }
+  components: { Header, Menu },
 }
 </script>
