@@ -11,7 +11,9 @@
         <div class="text-white flex flex-col items-center xl:items-start">
           <ul class="text-white flex space-x-9 mt-[26px] md:mt-[53px] xl:mt-0">
             <li v-for="planet in destination.data" :key="planet.name" @click="pick(planet.name)"
-              class="cursor-pointer pb-3 border-b-[3px] border-b-transparent hover:border-b-white uppercase">{{ planet.name }}</li>
+              class="cursor-pointer pb-3 border-b-[3px] border-b-transparent hover:border-b-white uppercase"
+              :class="{ 'border-b-white': planet.name === data.name }">
+              {{ planet.name }}</li>
           </ul>
           <span class=" text-[56px] md:text-[80px] xl:text-[100px] leading-[64px] md:leading-[92px] xl:leading-[115px]
             mt-5 md:mt-8 xl:mt-[37px] uppercase">{{ data.name }}</span>
