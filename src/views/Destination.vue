@@ -47,7 +47,7 @@ export default {
     const pickData = reactive({ data: [] })
 
     const getData = () => {
-        fetch('api/data.json').then((res) => {
+        fetch('Space-tourism-website/api/data.json').then((res) => {
           return res.json()
         }).then((data) => {
           destination.data = data.destinations
