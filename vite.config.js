@@ -7,5 +7,6 @@ export default defineConfig({
   plugins: [vue()],
   alias: {
     '@': path.join(__dirname, 'src')
-  }
+  },
+  base: '/Space-tourism-website/'
 })
