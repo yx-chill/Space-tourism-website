@@ -21,7 +21,12 @@ module.exports = {
       },
       boxShadow: {
         'explore': '0 0 0 44px rgba(255, 255, 255, .1)',
-        'explore-md': '0 0 0 88px rgba(255, 255, 255, .1)'
+        'explore-md': '0 0 0 88px rgba(255, 255, 255, .1)',
+        'active': '0px 1px 2px #000000'
+      },
+      fontFamily: {
+        'Barlow': ['Barlow', 'sans-serif'],
+        'Bellefair': ['Bellefair', 'sans-serif']
       }
     },
   },

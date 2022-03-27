@@ -11,21 +11,12 @@
       <nav class="w-3/5 h-full relative hidden md:block">
         <ul class="h-full text-white flex justify-center xl:justify-start items-center relative z-10 xl:pl-[123px]
           bg-white/5 backdrop-blur-xl md:space-x-[37px] xl:space-x-12">
-          <li class="leading-[93px] border-b-[3px] border-transparent hover:border-white duration-300 cursor-pointer relative">
-            <span class="hidden xl:inline-block mr-[10px] font-bold">00</span>HOME
-            <router-link :to="{ name: 'Home' }" class="absolute inset-0" />
-          </li>
-          <li class="leading-[93px] border-b-[3px] border-transparent hover:border-white duration-300 cursor-pointer relative">
-            <span class="hidden xl:inline-block mr-[10px] font-bold">01</span>DESTINATION
-            <router-link :to="{ name: 'Destination' }" class="absolute inset-0" />
-          </li>
-          <li class="leading-[93px] border-b-[3px] border-transparent hover:border-white duration-300 cursor-pointer relative">
-            <span class="hidden xl:inline-block mr-[10px] font-bold">02</span>CREW
-            <router-link :to="{ name: 'Crew' }" class="absolute inset-0" />
-          </li>
-          <li class="leading-[93px] border-b-[3px] border-transparent hover:border-white duration-300 cursor-pointer relative">
-            <span class="hidden xl:inline-block mr-[10px] font-bold">03</span>TECHNOLOGY
-            <router-link :to="{ name: 'Technology' }" class="absolute inset-0" />
+          <li v-for="(nav, i) in navItem" :key="nav.name"
+            class="leading-[93px] border-b-[3px] border-transparent hover:border-white duration-150 cursor-pointer relative
+              uppercase md:tracking-[2.3625px] xl:tracking-[2.7px]"
+            :class="{ 'border-white':  currPage === nav.path}">
+            <span class="hidden xl:inline-block mr-[10px] font-bold">{{ `0${i + 1}` }}</span>{{ nav.name }}
+            <router-link :to="{ name: nav.name }" class="absolute inset-0" />
           </li>
         </ul>
       </nav>
@@ -40,10 +31,17 @@ import { useStore } from 'vuex'
 export default {
   setup() {
     const store = useStore()
+    const navItem = [
+      { name: 'Home', path: '/' },
+      { name: 'Destination', path: '/dextination' },
+      { name: 'Crew', path: '/crew' },
+      { name: 'Technology', path: '/technology' }
+    ]
+    const currPage = computed(() => store.state.currPage)
     const isMenuShow = computed(() => store.state.isMenuShow)
     const showMenu = () => store.commit('showMenu')
 
-    return { isMenuShow, showMenu }
+    return { navItem, currPage, isMenuShow, showMenu }
   }
 }
 </script>

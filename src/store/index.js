@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 
 const store = createStore({
   state: {
-    isMenuShow: false
+    isMenuShow: false,
+    currPage: '/'
   },
   mutations: {
     showMenu(state) {
@@ -10,6 +11,9 @@ const store = createStore({
     },
     closeMenu(state) {
       state.isMenuShow = false
+    },
+    toPage(state, url) {
+      state.currPage = url
     }
   },
   actions: {

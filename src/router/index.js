@@ -1,4 +1,5 @@
 import { createWebHistory, createRouter } from 'vue-router'
+import store from '@/store/index.js'
 
 const routes = [
   {
@@ -26,6 +27,14 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+})
+
+router.beforeEach(() => {
+  store.commit('closeMenu')
+})
+
+router.afterEach(() => {
+  store.commit('toPage', history.state.current)
 })
 
 export default router

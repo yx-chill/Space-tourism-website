@@ -7,21 +7,11 @@
     </div>
     <menu class="text-white">
       <ul class="space-y-8 py-8 pl-8">
-        <li class="border-r-4 border-transparent hover:border-white duration-200 relative">
-          <span class="mr-3 font-bold">00</span>HOME
-          <router-link :to="{ name: 'Home' }" class="absolute inset-0" />  
-        </li>
-        <li class="border-r-4 border-transparent hover:border-white duration-200 relative">
-          <span class="mr-3 font-bold">01</span>DESTINATION
-          <router-link :to="{ name: 'Destination' }" class="absolute inset-0" />  
-        </li>
-        <li class="border-r-4 border-transparent hover:border-white duration-200 relative">
-          <span class="mr-3 font-bold">02</span>CREW
-          <router-link :to="{ name: 'Crew' }" class="absolute inset-0" />  
-        </li>
-        <li class="border-r-4 border-transparent hover:border-white duration-200 relative">
-          <span class="mr-3 font-bold">03</span>TECHNOLOGY
-          <router-link :to="{ name: 'Technology' }" class="absolute inset-0" />  
+        <li v-for="(nav, i) in navItem" :key="nav.name"
+          class="border-r-4 border-transparent hover:border-white duration-200 relative uppercase tracking-[2.7px]"
+          :class="{ 'border-white': currPage === nav.path }">
+          <span class="mr-3 font-bold">{{ `0${i + 1}` }}</span>{{ nav.name }}
+          <router-link :to="{ name: nav.name }" class="absolute inset-0" />  
         </li>
       </ul>
     </menu>
@@ -37,8 +27,15 @@ export default {
     const store = useStore()
     const isMenuShow = computed(() => store.state.isMenuShow)
     const closeMenu = () => store.commit('closeMenu')
+    const navItem = [
+      { name: 'Home', path: '/' },
+      { name: 'Destination', path: '/dextination' },
+      { name: 'Crew', path: '/crew' },
+      { name: 'Technology', path: '/technology' }
+    ]
+    const currPage = computed(() => store.state.currPage)
 
-    return { closeMenu, isMenuShow }
+    return { closeMenu, isMenuShow, navItem, currPage }
   }
 }
 </script>
