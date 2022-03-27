@@ -56,7 +56,7 @@ export default {
 
 
     const getData =() => {
-      fetch('https://song.sally-handmade.com/data.json').then((res) => {
+      fetch('src/api/data.json').then((res) => {
         return res.json()
       }).then((data) => {
         technology.data = data.technology
