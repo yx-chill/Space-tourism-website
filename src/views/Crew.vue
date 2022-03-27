@@ -10,7 +10,7 @@
         </div>
         <div class="flex flex-col items-center xl:items-start md:w-[458px] xl:w-[488px] mt-8 md:mt-[60px] xl:mt-[154px] xl:self-start">
           <ul class="flex space-x-4 xl:space-x-6 md:order-1 md:mt-10 xl:mt-[120px]">
-            <li v-for="item in crewData.data" :key="item.name" @click="pick(item.name)"
+            <li v-for="item in crew.data" :key="item.name" @click="pick(item.name)"
               class="w-[15px] h-[15px] bg-white rounded-full opacity-[.17] cursor-pointer hover:opacity-100 duration-200"
               :class="{'opacity-100': item.name === data.name}">
             </li>
@@ -32,13 +32,13 @@ import { reactive, toRefs } from 'vue'
 
 export default {
   setup() {
-    const crewData = reactive({ data: [] })
+    const crew = reactive({ data: [] })
     const pickData = reactive({ data: [] })
     const getData = () => {
       fetch('src/api/data.json').then((res) => {
         return res.json()
       }).then((data) => {
-        crewData.data = data.crew
+        crew.data = data.crew
         pickData.data = data.crew[0]
         pickData.data.img = new URL(pickData.data.images.webp, import.meta.url).href
       }).catch((error) => {
@@ -48,13 +48,13 @@ export default {
     getData()
 
     const pick = (person) => {
-      [pickData.data] = crewData.data.filter((item) => item.name === person)
+      [pickData.data] = crew.data.filter((item) => item.name === person)
       pickData.data.img = new URL(pickData.data.images.webp, import.meta.url).href
     }
 
     const { data } = toRefs(pickData)
   
-    return { crewData, pick, data }
+    return { crew, pick, data }
   }
 }
 </script>
