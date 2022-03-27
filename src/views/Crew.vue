@@ -36,7 +36,7 @@ export default {
     const crew = reactive({ data: [] })
     const pickData = reactive({ data: [] })
     const getData = () => {
-      fetch('../api/data.json').then((res) => {
+      fetch('https://song.sally-handmade.com/data.json').then((res) => {
         return res.json()
       }).then((data) => {
         console.log(data);
