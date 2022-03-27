@@ -47,7 +47,7 @@ export default {
     const pickData = reactive({ data: [] })
 
     const getData = () => {
-        fetch('src/api/data.json').then((res) => {
+        fetch('public/api/data.json').then((res) => {
           return res.json()
         }).then((data) => {
           destination.data = data.destinations
