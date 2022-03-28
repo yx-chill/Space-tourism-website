@@ -8,5 +8,4 @@ export default defineConfig({
   alias: {
     '@': path.join(__dirname, 'src')
   },
-  base: '/Space-tourism-website/'
 })

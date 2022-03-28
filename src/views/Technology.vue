@@ -56,7 +56,7 @@ export default {
 
 
     const getData =() => {
-      fetch('Space-tourism-website/api/data.json').then((res) => {
+      fetch('/api/data.json').then((res) => {
         return res.json()
       }).then((data) => {
         technology.data = data.technology

@@ -1,7 +1,7 @@
 <template>
   <section class="h-full bg-crew-mobile md:bg-crew-tablet xl:bg-crew-desktop bg-cover bg-no-repeat">
     <div class="h-full pt-[88px] md:pt-24 xl:pt-[136px] text-white">
-      <div class="h-full flex flex-col xl:flex-wrap items-center px-6 md:px-[38.5px] xl:px-[142px] md:mt-10 xl:mt-[76px]">
+      <div class="h-full flex flex-col xl:flex-wrap items-center xl:justify-between px-6 md:px-[38.5px] xl:px-[142px] md:mt-10 xl:mt-[76px]">
         <h3 class="md:text-xl xl:text-[28px] leading-[19px] md:leading-6 xl:leading-[34px] uppercase md:self-start
           tracking-[3.375px] md:tracking-[4.725px]">
             <span class="opacity-25 mr-7">02</span>Meet your crew</h3>
@@ -9,8 +9,8 @@
           mt-8 md:mt-10 xl:mt-0 md:order-1">
           <img class="h-full w-auto mx-auto" :src="data.img" alt="crew">
         </div>
-        <div class="flex flex-col items-center xl:items-start md:max-w-[520px] xl:max-w-[614px] mt-8 md:mt-[60px] xl:mt-[154px] xl:self-start">
-          <ul class="flex space-x-4 xl:space-x-6 md:order-1 md:mt-10 xl:mt-[120px]">
+        <div class="flex flex-col items-center xl:items-start md:max-w-[520px] xl:max-w-[614px] mt-8 md:mt-[60px] xl:mt-0 xl:self-start">
+          <ul class="flex space-x-4 xl:space-x-6 md:order-1 md:mt-10 xl:mt-[120px] xl:mb-[136px]">
             <li v-for="item in crew.data" :key="item.name" @click="pick(item.name)"
               class="w-[15px] h-[15px] bg-white rounded-full opacity-[.17] cursor-pointer hover:shadow-active duration-200"
               :class="{'opacity-100': item.name === data.name}">
@@ -36,7 +36,7 @@ export default {
     const crew = reactive({ data: [] })
     const pickData = reactive({ data: [] })
     const getData = () => {
-      fetch('Space-tourism-website/api/data.json').then((res) => {
+      fetch('/api/data.json').then((res) => {
         return res.json()
       }).then((data) => {
         crew.data = data.crew
